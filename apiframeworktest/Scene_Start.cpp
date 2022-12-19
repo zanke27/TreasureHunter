@@ -10,6 +10,10 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "SoundMgr.h"
+#include "Platform.h"
+#include "ResMgr.h"
+#include "PlatformObj.h"
+#include "json/json.h"
 Scene_Start::Scene_Start()
 {
 }
@@ -58,6 +62,39 @@ void Scene_Start::Enter()
 		pMonsterObj->SetMoveDistance(fMoveDist);
 		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	}
+
+	Platform* pPlatform = ResMgr::GetInst()->PlatformLoad(L"TestMap", L"Platform\\Test.json");
+	int mapWidth = pPlatform->GetWidth();
+	int mapHeight = pPlatform->GetHeight();
+	float tileScale = 40.f;
+	Json::Value mapArr = pPlatform->GetMapData();
+	PlatformObj* pPlatformObj = nullptr;
+
+	for (int i = 1; i <= mapHeight; i++) {
+		for (int j = 1; j <= mapWidth; j++) {
+			if (mapArr[i] == 58)
+			{
+				pPlatformObj = new PlatformObj;
+				pPlatformObj->SetName(L"PlatformObj");
+				pPlatformObj->SetPos(Vec2(50 * j, 50 * i));
+				pPlatformObj->SetScale(Vec2(tileScale, tileScale));
+				pPlatformObj->SetCenterPos(pPlatformObj->GetPos());
+				AddObject(pPlatformObj, GROUP_TYPE::PLATFORM);
+			}
+		}
+	}
+
+	//for (int i = 0; i < data.size(); i++) {
+	//    cout << data[i] << "  ";
+	//    // switch (data[i])
+	//    // case 58: 이미지 출력 break;
+	//    // 출력위치 옮기기
+	//    if ((i + 1) % width == 0) {
+	//        cout << endl;
+	//        // 출력 위치 y값 옮기기 + x값 옮기기
+	//    }
+	//}
+	
 	//pObj = new Object;
 
 	//pObj->SetPos(Vec2(640.f, 384.f));

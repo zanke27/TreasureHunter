@@ -86,6 +86,12 @@
     <Filter Include="Engine\03. Manager\SoundMgr">
       <UniqueIdentifier>{e09d7cab-b2dc-4a5f-8924-8af5317c88d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\06. Resource\Platform">
+      <UniqueIdentifier>{75b79eef-0719-4235-ac75-76328ea2ac68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\PlatformObj">
+      <UniqueIdentifier>{445c2264-66da-477c-a36d-87a8782a6f42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -184,6 +190,18 @@
     <ClInclude Include="SoundMgr.h">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Engine\06. Resource\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformObj.h">
+      <Filter>Engine\04. Object\PlatformObj</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json.h">
+      <Filter>Engine\01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json-forwards.h">
+      <Filter>Engine\01. Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -277,6 +295,15 @@
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Engine\06. Resource\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformObj.cpp">
+      <Filter>Engine\04. Object\PlatformObj</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp.cpp">
+      <Filter>Engine\02. Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
