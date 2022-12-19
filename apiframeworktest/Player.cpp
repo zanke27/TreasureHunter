@@ -27,7 +27,7 @@ Player::Player()
 	GetAnimator()->CreateAnimation(L"Jump", pImg, Vec2(0.f, 32.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.2f);
 	GetAnimator()->CreateAnimation(L"Land", pImg, Vec2(0.f, 48.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.2f);
 	GetAnimator()->CreateAnimation(L"Fall", pImg, Vec2(0.f, 64.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
-	GetAnimator()->Play(L"Walk", true);
+	GetAnimator()->Play(L"Idle", true);
 }
 Player::~Player()
 {
@@ -39,6 +39,7 @@ void Player::Update()
 	Vec2 vPos = GetPos();
 	static bool isJump = false;
 	static bool isMove = false;
+	static bool isFall = false;
 	static float m_dt = 0.0f;
 
 	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A))
@@ -53,7 +54,7 @@ void Player::Update()
 		isMove = true;
 		vPos.x += 300.f * fDT;
 	}
-	else if(isMove)
+	else if(isMove && !isFall && !isJump)
 	{
 		isMove = false;
 		GetAnimator()->Play(L"Idle", true);
@@ -61,22 +62,28 @@ void Player::Update()
 
 	if (KEY_TAP(KEY::SPACE) || KEY_TAP(KEY::W))
 	{
-		if (!isJump)
+		if (!isJump && !isFall)
 		{
-			GetAnimator()->Play(L"Jump", false);
-			vPos.y += 300.f * fDT;
 			isJump = true;
+			GetAnimator()->Play(L"Jump", true);
 		}
 	}
 	if (isJump)
 	{
 		m_dt += fDT;
+		vPos.y -= 80.f * fDT + (0.6f-m_dt) * 0.2f;
 		if (m_dt >= 0.6f)
 		{
 			m_dt = 0.0f;
 			isJump = false;
+			isFall = true;
 			GetAnimator()->Play(L"Fall", true);
 		}
+	}
+	if (isFall)
+	{
+		m_dt += fDT;
+		vPos.y +=  m_dt * 0.4f;
 	}
 	SetPos(vPos);
 	GetAnimator()->Update();
