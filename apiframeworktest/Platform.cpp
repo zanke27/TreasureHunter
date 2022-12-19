@@ -29,7 +29,7 @@ void Platform::Load(const wstring& _strFilePath)
 
     const Json::Value layer = root["layers"];
     const Json::Value datas = layer[0];
-    const Json::Value data = datas["data"];
+    data = datas["data"];
     width = root["width"].asInt();
     height = root["height"].asInt();
 }

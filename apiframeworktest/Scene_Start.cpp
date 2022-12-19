@@ -76,7 +76,7 @@ void Scene_Start::Enter()
 			{
 				pPlatformObj = new PlatformObj;
 				pPlatformObj->SetName(L"PlatformObj");
-				pPlatformObj->SetPos(Vec2(50 * j, 50 * i));
+				pPlatformObj->SetPos(Vec2(5 * j, 5 * i));
 				pPlatformObj->SetScale(Vec2(tileScale, tileScale));
 				pPlatformObj->SetCenterPos(pPlatformObj->GetPos());
 				AddObject(pPlatformObj, GROUP_TYPE::PLATFORM);
