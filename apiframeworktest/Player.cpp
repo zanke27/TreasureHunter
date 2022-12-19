@@ -18,17 +18,16 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(20.f, 30.f));
 
 	// image 업로드
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\jiwoo.bmp");
+	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Playerb.bmp");
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->Play(L"Jiwoofront", true);
-
-	// animation offset 위로 올리기. 
-	Animation* pAnim = GetAnimator()->FindAnimation(L"Jiwoofront");
-	for(size_t i=0;i<pAnim->GetMaxFrame();i++)
-		pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
+	GetAnimator()->CreateAnimation(L"Idle", pImg, Vec2(0.f, 0.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.5f);
+	GetAnimator()->CreateAnimation(L"Walk", pImg, Vec2(0.f, 16.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.25f);
+	GetAnimator()->CreateAnimation(L"Jump", pImg, Vec2(0.f, 32.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.2f);
+	GetAnimator()->CreateAnimation(L"Land", pImg, Vec2(0.f, 48.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.2f);
+	GetAnimator()->CreateAnimation(L"Fall", pImg, Vec2(0.f, 64.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
+	GetAnimator()->Play(L"Walk", true);
 }
 Player::~Player()
 {
@@ -38,25 +37,46 @@ Player::~Player()
 void Player::Update()
 {
 	Vec2 vPos = GetPos();
-	if(KEY_HOLD(KEY::UP))
+	static bool isJump = false;
+	static bool isMove = false;
+	static float m_dt = 0.0f;
+
+	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A))
 	{
-		vPos.y -= 300.f * fDT;
-	}
-	if (KEY_HOLD(KEY::DOWN))
-	{
-		vPos.y += 300.f * fDT;
-	}
-	if (KEY_HOLD(KEY::LEFT))
-	{
+		GetAnimator()->Play(L"Walk", true);
+		isMove = true;
 		vPos.x -= 300.f * fDT;
 	}
-	if (KEY_HOLD(KEY::RIGHT))
+	else if (KEY_HOLD(KEY::RIGHT) || KEY_HOLD(KEY::D))
 	{
+		GetAnimator()->Play(L"Walk", true);
+		isMove = true;
 		vPos.x += 300.f * fDT;
 	}
-	if (KEY_TAP(KEY::SPACE))
+	else if(isMove)
 	{
-		CreateBullet();
+		isMove = false;
+		GetAnimator()->Play(L"Idle", true);
+	}
+
+	if (KEY_TAP(KEY::SPACE) || KEY_TAP(KEY::W))
+	{
+		if (!isJump)
+		{
+			GetAnimator()->Play(L"Jump", false);
+			vPos.y += 300.f * fDT;
+			isJump = true;
+		}
+	}
+	if (isJump)
+	{
+		m_dt += fDT;
+		if (m_dt >= 0.6f)
+		{
+			m_dt = 0.0f;
+			isJump = false;
+			GetAnimator()->Play(L"Fall", true);
+		}
 	}
 	SetPos(vPos);
 	GetAnimator()->Update();
