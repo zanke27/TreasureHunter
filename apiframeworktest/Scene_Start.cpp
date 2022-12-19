@@ -63,26 +63,41 @@ void Scene_Start::Enter()
 		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	}
 
-	Platform* pPlatform = ResMgr::GetInst()->PlatformLoad(L"TestMap", L"Platform\\Test.json");
+	Platform* pPlatform = ResMgr::GetInst()->PlatformLoad(L"MainMap", L"Platform\\MainMap.json");
 	int mapWidth = pPlatform->GetWidth();
 	int mapHeight = pPlatform->GetHeight();
-	float tileScale = 40.f;
+	float tileScale = 16.f;
 	Json::Value mapArr = pPlatform->GetMapData();
 	PlatformObj* pPlatformObj = nullptr;
 
-	for (int i = 1; i <= mapHeight; i++) {
-		for (int j = 1; j <= mapWidth; j++) {
-			if (mapArr[i] == 58)
-			{
-				pPlatformObj = new PlatformObj;
-				pPlatformObj->SetName(L"PlatformObj");
-				pPlatformObj->SetPos(Vec2(5 * j, 5 * i));
-				pPlatformObj->SetScale(Vec2(tileScale, tileScale));
-				pPlatformObj->SetCenterPos(pPlatformObj->GetPos());
-				AddObject(pPlatformObj, GROUP_TYPE::PLATFORM);
-			}
+	for (int i = 1; i <= mapHeight * mapWidth; i++) {
+		if (mapArr[i] == 1)
+		{
+			int h = i / mapWidth + 1;
+			int w = i % mapWidth;
+
+			pPlatformObj = new PlatformObj;
+			pPlatformObj->SetName(L"PlatformObj");
+			pPlatformObj->SetPos(Vec2(tileScale * w, tileScale * h));
+			pPlatformObj->SetScale(Vec2(tileScale, tileScale));
+			pPlatformObj->SetCenterPos(pPlatformObj->GetPos());
+			AddObject(pPlatformObj, GROUP_TYPE::PLATFORM);
 		}
 	}
+
+	//for (int i = 1; i <= mapHeight; i++) {
+	//	for (int j = 1; j <= mapWidth; j++) {
+	//		if (mapArr[i] == 58)
+	//		{
+	//			pPlatformObj = new PlatformObj;
+	//			pPlatformObj->SetName(L"PlatformObj");
+	//			pPlatformObj->SetPos(Vec2(5 * j, 5 * i));
+	//			pPlatformObj->SetScale(Vec2(tileScale, tileScale));
+	//			pPlatformObj->SetCenterPos(pPlatformObj->GetPos());
+	//			AddObject(pPlatformObj, GROUP_TYPE::PLATFORM);
+	//		}
+	//	}
+	//}
 
 	//for (int i = 0; i < data.size(); i++) {
 	//    cout << data[i] << "  ";
