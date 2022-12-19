@@ -11,6 +11,7 @@ public:
 	void SetCenterPos(Vec2 _vPos) { m_vCenterPos = _vPos; }
 public:
 	virtual void Update() override;
+	virtual void Render(HDC _dc) override;
 	virtual void	EnterCollision(Collider* _pOther);
 	CLONE(PlatformObj);
 public:

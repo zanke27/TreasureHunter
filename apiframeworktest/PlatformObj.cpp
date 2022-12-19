@@ -9,9 +9,9 @@ PlatformObj::PlatformObj()
 	: m_vCenterPos(Vec2(0.f, 0.f))
 {
 	// 이거 현재는 이미지 없으니까 만들어야함
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"Brick", L"Image\\Brick.bmp"); // 사막 유적같이 생긴 벽돌 하나 그려서 땜빵하자
+	m_platformImage = ResMgr::GetInst()->ImgLoad(L"Brick", L"Image\\Brick.bmp");
 	CreateCollider();
-	GetCollider()->SetScale(Vec2(40.f, 40.f));
+	GetCollider()->SetScale(Vec2(16.f, 16.f));
 }
 
 PlatformObj::~PlatformObj()
@@ -22,6 +22,23 @@ PlatformObj::~PlatformObj()
 void PlatformObj::Update()
 {
 
+}
+
+void PlatformObj::Render(HDC _dc)
+{
+	int Width = (int)m_platformImage->GetWidth();
+	int Height = (int)m_platformImage->GetHeight();
+
+	Vec2 vPos = GetPos();
+	//마젠타 색상 뺄때 transparent: 투명한
+	TransparentBlt(_dc
+		, (int)(vPos.x - (float)(Width / 2))
+		, (int)(vPos.y - (float)(Height / 2))
+		, Width, Height
+		, m_platformImage->GetDC()
+		, 0, 0, Width, Height
+		, RGB(255, 0, 255));
+	Component_Render(_dc);
 }
 
 void PlatformObj::EnterCollision(Collider* _pOther)
