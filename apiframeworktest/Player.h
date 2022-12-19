@@ -3,6 +3,7 @@
 
 class Image;
 class Player :
+
     public Object
 {
 private:
@@ -15,8 +16,9 @@ public:
     //{}
     ~Player();
 private:
-    void CreateBullet();
-
+    virtual void	EnterCollision(Collider* _pOther);
+    virtual void    ExitCollision(Collider* _pOther);
+    virtual void    StayCollision(Collider* _pOther);
 //    Player* Clone{ return new Player(*this); }
     CLONE(Player);
 public:

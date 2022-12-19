@@ -11,11 +11,18 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+
+static bool isJump = false;
+static bool isMove = false;
+static bool isFall = false;
+static int	collCount = 0;
+static float m_dt = 0.0f;
+
 Player::Player()
 {
 	// collider 새성
 	CreateCollider();
-	GetCollider()->SetScale(Vec2(20.f, 30.f));
+	GetCollider()->SetScale(Vec2(20.f, 20.f));
 
 	// image 업로드
 	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Playerb.bmp");
@@ -24,35 +31,54 @@ Player::Player()
 	CreateAnimator();
 	GetAnimator()->CreateAnimation(L"Idle", pImg, Vec2(0.f, 0.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.5f);
 	GetAnimator()->CreateAnimation(L"Walk", pImg, Vec2(0.f, 16.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.25f);
-	GetAnimator()->CreateAnimation(L"Jump", pImg, Vec2(0.f, 32.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.2f);
-	GetAnimator()->CreateAnimation(L"Land", pImg, Vec2(0.f, 48.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.2f);
+	GetAnimator()->CreateAnimation(L"Jump", pImg, Vec2(0.f, 32.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
+	GetAnimator()->CreateAnimation(L"Land", pImg, Vec2(0.f, 48.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
 	GetAnimator()->CreateAnimation(L"Fall", pImg, Vec2(0.f, 64.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
 	GetAnimator()->Play(L"Idle", true);
+
 }
 Player::~Player()
 {
 	//if(nullptr !=m_pImage)
 	//	delete m_pImage;
 }
+void Player::EnterCollision(Collider* _pOther)
+{
+	collCount++;
+	if (isFall)
+	{
+		GetAnimator()->Play(L"Land", true);
+		isFall = false;
+		m_dt = 0;
+	}
+}
+void Player::ExitCollision(Collider* _pOther)
+{
+ 	collCount--;
+	if (!isJump && !isFall && collCount <= 0)
+	{
+		isFall = true;
+		GetAnimator()->Play(L"Fall", true);
+	}
+}
+void Player::StayCollision(Collider* _pOther)
+{
+}
 void Player::Update()
 {
 	Vec2 vPos = GetPos();
-	static bool isJump = false;
-	static bool isMove = false;
-	static bool isFall = false;
-	static float m_dt = 0.0f;
 
-	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A))
+	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A)) 
 	{
 		GetAnimator()->Play(L"Walk", true);
 		isMove = true;
-		vPos.x -= 300.f * fDT;
+		vPos.x -= 200.f * fDT;
 	}
 	else if (KEY_HOLD(KEY::RIGHT) || KEY_HOLD(KEY::D))
 	{
 		GetAnimator()->Play(L"Walk", true);
 		isMove = true;
-		vPos.x += 300.f * fDT;
+		vPos.x += 200.f * fDT;
 	}
 	else if(isMove && !isFall && !isJump)
 	{
@@ -71,8 +97,8 @@ void Player::Update()
 	if (isJump)
 	{
 		m_dt += fDT;
-		vPos.y -= 80.f * fDT + (0.6f-m_dt) * 0.2f;
-		if (m_dt >= 0.6f)
+		vPos.y -= 200.f * fDT + (0.3f-m_dt) * 0.2f;
+		if (m_dt >= 0.3f)
 		{
 			m_dt = 0.0f;
 			isJump = false;
@@ -83,27 +109,13 @@ void Player::Update()
 	if (isFall)
 	{
 		m_dt += fDT;
-		vPos.y +=  m_dt * 0.4f;
+		vPos.y += m_dt * 2.f;
 	}
+
 	SetPos(vPos);
 	GetAnimator()->Update();
 }
 
-void Player::CreateBullet()
-{
-	Vec2 vBulletPos = GetPos();
-	vBulletPos.y -= GetScale().y / 2.f;
-
-	// 
-	Bullet* pBullet = new Bullet;
-	pBullet->SetName(L"Bullet_Player");
-	pBullet->SetPos(vBulletPos);
-	pBullet->SetScale(Vec2(25.f, 25.f));
-	pBullet->SetDir(Vec2(0.f, -1.f));
-	CreateObject(pBullet, GROUP_TYPE::BULLET_PLAYER);
-	//Scene* pCurScene = SceneMgr::GetInst()->GetCurScene();
-	//pCurScene->AddObject(pBullet,GROUP_TYPE::BULLET);
-}
 void Player::Render(HDC _dc)
 {
 	Component_Render(_dc);
