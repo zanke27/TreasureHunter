@@ -14,6 +14,9 @@
 #include "ResMgr.h"
 #include "PlatformObj.h"
 #include "json/json.h"
+
+static Object* pObj;
+
 Scene_Start::Scene_Start()
 {
 }
@@ -26,8 +29,10 @@ void Scene_Start::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
-	Object* pObj = new Player;
-	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/2, Core::GetInst()->GetResolution().y/3));
+
+	pObj = new Player;
+	
+	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/20, Core::GetInst()->GetResolution().y/3));
 	pObj->SetScale(Vec2(100.f,100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 
@@ -136,5 +141,9 @@ void Scene_Start::Update()
 	if (KEY_TAP(KEY::ENTER))
 	{
 		ChangeScene(SCENE_TYPE::SCENE_01);
+	}
+	if (pObj->GetPos().y > Core::GetInst()->GetResolution().y)
+	{
+		pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20, Core::GetInst()->GetResolution().y / 3));
 	}
 }

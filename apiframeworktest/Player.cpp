@@ -12,11 +12,14 @@
 #include "Animator.h"
 #include "Animation.h"
 
+static bool isLeft = false;
 static bool isJump = false;
 static bool isMove = false;
 static bool isFall = false;
 static bool isCanMove = true;
 static int	collCount = 0;
+static int	groundCount = 0;
+static int test = 0;
 static float m_dt = 0.0f;
 
 Player::Player()
@@ -30,12 +33,18 @@ Player::Player()
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"Idle", pImg, Vec2(0.f, 0.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.5f);
-	GetAnimator()->CreateAnimation(L"Walk", pImg, Vec2(0.f, 16.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.25f);
-	GetAnimator()->CreateAnimation(L"Jump", pImg, Vec2(0.f, 32.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
-	GetAnimator()->CreateAnimation(L"Land", pImg, Vec2(0.f, 48.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
-	GetAnimator()->CreateAnimation(L"Fall", pImg, Vec2(0.f, 64.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
-	GetAnimator()->Play(L"Idle", true);
+	GetAnimator()->CreateAnimation(L"IdleL", pImg, Vec2(0.f, 0.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.5f);
+	GetAnimator()->CreateAnimation(L"WalkL", pImg, Vec2(0.f, 16.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.25f);
+	GetAnimator()->CreateAnimation(L"JumpL", pImg, Vec2(0.f, 32.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
+	GetAnimator()->CreateAnimation(L"LandL", pImg, Vec2(0.f, 48.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
+	GetAnimator()->CreateAnimation(L"FallL", pImg, Vec2(0.f, 64.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
+	GetAnimator()->CreateAnimation(L"IdleR", pImg, Vec2(0.f, 80.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.5f);
+	GetAnimator()->CreateAnimation(L"WalkR", pImg, Vec2(0.f, 96.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.25f);
+	GetAnimator()->CreateAnimation(L"JumpR", pImg, Vec2(0.f, 112.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
+	GetAnimator()->CreateAnimation(L"LandR", pImg, Vec2(0.f, 128.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 3, 0.1f);
+	GetAnimator()->CreateAnimation(L"FallR", pImg, Vec2(0.f, 144.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
+
+	GetAnimator()->Play(L"IdleR", true);
 
 }
 Player::~Player()
@@ -45,26 +54,28 @@ Player::~Player()
 }
 void Player::EnterCollision(Collider* _pOther)
 {
-	collCount++;
-
 	Vec2 vLeftPos = GetCollider()->GetFinalPos();
 	Vec2 vRightPos = _pOther->GetFinalPos();
 	Vec2 vLeftScale = GetCollider()->GetScale();
 	Vec2 vRightScale = _pOther->GetScale();
 
-	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.1f)
+	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.5f && collCount == 0)
 	{
 		isJump = false;
+		isFall = true;
 		isCanMove = false;
 		collCount = 0;
 	}
 	else if (isFall)
 	{
-		GetAnimator()->Play(L"Land", true);
+		if(isLeft)
+			GetAnimator()->Play(L"LandL", true);
+		else
+			GetAnimator()->Play(L"LandR", true);
 		isFall = false;
 		m_dt = 0;
 	}
-
+	collCount++;
 }
 void Player::ExitCollision(Collider* _pOther)
 {
@@ -72,7 +83,7 @@ void Player::ExitCollision(Collider* _pOther)
 	if (!isCanMove) isCanMove = true;
 }
 void Player::StayCollision(Collider* _pOther)
-{
+{      
 }
 void Player::Update()
 {
@@ -82,24 +93,31 @@ void Player::Update()
 	{
 		if (isCanMove)
 		{
-			GetAnimator()->Play(L"Walk", true);
+			GetAnimator()->Play(L"WalkL", true);
+			isLeft = true;
 			isMove = true;
 			vPos.x -= 200.f * fDT;
+			test--;
 		}
 	}
 	else if (KEY_HOLD(KEY::RIGHT) || KEY_HOLD(KEY::D))
 	{
 		if (isCanMove)
 		{
-			GetAnimator()->Play(L"Walk", true);
+			GetAnimator()->Play(L"WalkR", true);
+			isLeft = false;
 			isMove = true;
 			vPos.x += 200.f * fDT;
+			test++;
 		}
 	}
 	else if(isMove && !isFall && !isJump)
 	{
 		isMove = false;
-		GetAnimator()->Play(L"Idle", true);
+		if(isLeft)
+			GetAnimator()->Play(L"IdleL", true);
+		else
+			GetAnimator()->Play(L"IdleR", true);
 	}
 
 	if (KEY_TAP(KEY::SPACE) || KEY_TAP(KEY::W))
@@ -107,19 +125,25 @@ void Player::Update()
 		if (!isJump && !isFall)
 		{
 			isJump = true;
-			GetAnimator()->Play(L"Jump", true);
+			if(isLeft)
+				GetAnimator()->Play(L"JumpL", true);
+			else
+				GetAnimator()->Play(L"JumpR", true);
 		}
 	}
 	if (isJump)
 	{
 		m_dt += fDT;
-		vPos.y -= 200.f * fDT + (0.3f-m_dt) * 0.2f;
+		vPos.y -= 200.f * fDT + (0.2f-m_dt) * 0.2f;
 		if (m_dt >= 0.3f)
 		{
 			m_dt = 0.0f;
 			isJump = false;
 			isFall = true;
-			GetAnimator()->Play(L"Fall", true);
+			if(isLeft)
+				GetAnimator()->Play(L"FallL", true);
+			else
+				GetAnimator()->Play(L"FallR", true);
 		}
 	}
 	if (isFall)
@@ -130,7 +154,10 @@ void Player::Update()
 	if (!isJump && collCount <= 0)
 	{
 		isFall = true;
-		GetAnimator()->Play(L"Fall", true);
+		if(isLeft)
+			GetAnimator()->Play(L"FallL", true);
+		else
+			GetAnimator()->Play(L"FallR", true);
 	}
 
 	SetPos(vPos);
@@ -140,6 +167,21 @@ void Player::Update()
 void Player::Render(HDC _dc)
 {
 	Component_Render(_dc);
+
+	//POINT dot[3] = {
+	//	GetCollider()->GetFinalPos().x, 
+	//	GetCollider()->GetFinalPos().x + GetCollider()->GetScale().x, 
+	//	GetCollider()->GetFinalPos().x + GetCollider()->GetScale().y};
+	//// 현재 위치.
+
+	//// 회전 행렬 계산
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	dot[i].x = dot[i].x * cos(test) - dot[i].y * sin(test);
+	//    dot[i].y = dot[i].x * sin(test) + dot[i].y * cos(test);
+	//}
+
+	// 회전된 것으로 렌더링
 	/*int Width = (int)m_pImage->GetWidth();
 	int Height = (int)m_pImage->GetHeight();
 
