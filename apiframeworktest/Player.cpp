@@ -15,6 +15,7 @@
 static bool isJump = false;
 static bool isMove = false;
 static bool isFall = false;
+static bool isCanMove = true;
 static int	collCount = 0;
 static float m_dt = 0.0f;
 
@@ -45,21 +46,30 @@ Player::~Player()
 void Player::EnterCollision(Collider* _pOther)
 {
 	collCount++;
-	if (isFall)
+
+	Vec2 vLeftPos = GetCollider()->GetFinalPos();
+	Vec2 vRightPos = _pOther->GetFinalPos();
+	Vec2 vLeftScale = GetCollider()->GetScale();
+	Vec2 vRightScale = _pOther->GetScale();
+
+	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.1f)
+	{
+		isJump = false;
+		isCanMove = false;
+		collCount = 0;
+	}
+	else if (isFall)
 	{
 		GetAnimator()->Play(L"Land", true);
 		isFall = false;
 		m_dt = 0;
 	}
+
 }
 void Player::ExitCollision(Collider* _pOther)
 {
  	collCount--;
-	if (!isJump && !isFall && collCount <= 0)
-	{
-		isFall = true;
-		GetAnimator()->Play(L"Fall", true);
-	}
+	if (!isCanMove) isCanMove = true;
 }
 void Player::StayCollision(Collider* _pOther)
 {
@@ -70,15 +80,21 @@ void Player::Update()
 
 	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A)) 
 	{
-		GetAnimator()->Play(L"Walk", true);
-		isMove = true;
-		vPos.x -= 200.f * fDT;
+		if (isCanMove)
+		{
+			GetAnimator()->Play(L"Walk", true);
+			isMove = true;
+			vPos.x -= 200.f * fDT;
+		}
 	}
 	else if (KEY_HOLD(KEY::RIGHT) || KEY_HOLD(KEY::D))
 	{
-		GetAnimator()->Play(L"Walk", true);
-		isMove = true;
-		vPos.x += 200.f * fDT;
+		if (isCanMove)
+		{
+			GetAnimator()->Play(L"Walk", true);
+			isMove = true;
+			vPos.x += 200.f * fDT;
+		}
 	}
 	else if(isMove && !isFall && !isJump)
 	{
@@ -110,6 +126,11 @@ void Player::Update()
 	{
 		m_dt += fDT;
 		vPos.y += m_dt * 2.f;
+	}
+	if (!isJump && collCount <= 0)
+	{
+		isFall = true;
+		GetAnimator()->Play(L"Fall", true);
 	}
 
 	SetPos(vPos);
