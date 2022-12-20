@@ -59,12 +59,16 @@ void Player::EnterCollision(Collider* _pOther)
 	Vec2 vLeftScale = GetCollider()->GetScale();
 	Vec2 vRightScale = _pOther->GetScale();
 
-	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.5f && collCount == 0)
+	if (abs(vRightPos.y - vLeftPos.y) >= (vLeftScale.y + vRightScale.y) / 2.1f &&
+		abs(vRightPos.x - vLeftPos.x) < (vLeftScale.x + vRightScale.x) / 2.2f) groundCount++;
+	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.2f)
 	{
-		isJump = false;
-		isFall = true;
+		if (groundCount == 0)
+		{
+			//isJump = false;
+			//isFall = true;
+		}
 		isCanMove = false;
-		collCount = 0;
 	}
 	else if (isFall)
 	{
@@ -80,6 +84,8 @@ void Player::EnterCollision(Collider* _pOther)
 void Player::ExitCollision(Collider* _pOther)
 {
  	collCount--;
+	if(groundCount >= 1)
+		groundCount--;
 	if (!isCanMove) isCanMove = true;
 }
 void Player::StayCollision(Collider* _pOther)
