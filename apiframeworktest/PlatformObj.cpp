@@ -19,6 +19,16 @@ PlatformObj::~PlatformObj()
 
 }
 
+void PlatformObj::SetImageToNum(int num)
+{
+	if (num == 1) 
+		m_platformImage = ResMgr::GetInst()->ImgLoad(L"Brick", L"Image\\Brick.bmp");
+	else if (num == 2)
+		m_platformImage = ResMgr::GetInst()->ImgLoad(L"Portal", L"Image\\Portal.bmp");
+	else if (num == 3)
+		m_platformImage = ResMgr::GetInst()->ImgLoad(L"TextBlock", L"Image\\TextBlock.bmp");
+}
+
 void PlatformObj::Update()
 {
 
