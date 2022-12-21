@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "Player.h"
 #include "Monster.h"
+#include "Background.h"
 #include "Core.h"
 #include "Image.h"
 #include "PathMgr.h"
@@ -31,6 +32,12 @@ void Scene_Start::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
+
+	Object* bObj = new Background;
+	
+	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
+	bObj->SetScale(Vec2(100.f, 100.f));
+	AddObject(bObj, GROUP_TYPE::DEFAULT);
 
 	pObj = new Player;
 	
@@ -80,7 +87,7 @@ void Scene_Start::Enter()
 void Scene_Start::Exit()
 {
 	DeleteAll();
-	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+	//SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	CollisionMgr::GetInst()->CheckReset();
 }
 
@@ -100,6 +107,7 @@ void Scene_Start::Update()
 		pObj->GetPos().y + 16 >= sPlatObj->GetPos().y &&
 		pObj->GetPos().y - 16 <= sPlatObj->GetPos().y)
 	{
+		//SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 		ChangeScene(SCENE_TYPE::SCENE_01);
 	}
 }

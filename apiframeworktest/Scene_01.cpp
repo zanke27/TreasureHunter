@@ -28,9 +28,8 @@ Scene_01::~Scene_01()
 }
 void Scene_01::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
-	SoundMgr::GetInst()->Play(L"BGM");
-	// Object Ãß°¡
+	//SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
+	//SoundMgr::GetInst()->Play(L"BGM");
 
 	pObj = new Player;
 
@@ -87,6 +86,10 @@ void Scene_01::Exit()
 void Scene_01::Update()
 {
 	Scene::Update();
+	if (pObj->GetPos().y > Core::GetInst()->GetResolution().y)
+	{
+		pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20, Core::GetInst()->GetResolution().y / 3 - 10));
+	}
 	if (pObj->GetPos().x + 16 >= sPlatObj->GetPos().x &&
 		pObj->GetPos().x - 16 <= sPlatObj->GetPos().x &&
 		pObj->GetPos().y + 16 >= sPlatObj->GetPos().y &&

@@ -95,6 +95,9 @@
     <Filter Include="Engine\05. Scene\Scene_Title">
       <UniqueIdentifier>{b897f7e8-46ce-4d68-953f-ac29a105f5ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Background">
+      <UniqueIdentifier>{70f9629b-4f9b-4dce-a003-c814eceb9a53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -208,6 +211,9 @@
     <ClInclude Include="Scene_Title.h">
       <Filter>Engine\05. Scene\Scene_Title</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Engine\04. Object\Background</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -313,6 +319,9 @@
     </ClCompile>
     <ClCompile Include="Scene_Title.cpp">
       <Filter>Engine\05. Scene\Scene_Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Engine\04. Object\Background</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

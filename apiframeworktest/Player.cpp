@@ -27,7 +27,7 @@ Player::Player()
 {
 	// collider 새성
 	CreateCollider();
-	GetCollider()->SetScale(Vec2(20.f, 20.f));
+	GetCollider()->SetScale(Vec2(16.f, 16.f));
 
 	// image 업로드
 	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Playerb.bmp");
