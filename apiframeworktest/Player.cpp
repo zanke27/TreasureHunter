@@ -16,7 +16,8 @@ static bool isLeft = false;
 static bool isJump = false;
 static bool isMove = false;
 static bool isFall = false;
-static bool isCanMove = true;
+static bool isCanMoveL = true;
+static bool isCanMoveR = true;
 static int	collCount = 0;
 static int	groundCount = 0;
 static int test = 0;
@@ -68,7 +69,10 @@ void Player::EnterCollision(Collider* _pOther)
 			//isJump = false;
 			//isFall = true;
 		}
-		isCanMove = false;
+		if (isLeft)
+			isCanMoveL = false;
+		else
+			isCanMoveR = false;
 	}
 	else if (isFall)
 	{
@@ -86,7 +90,8 @@ void Player::ExitCollision(Collider* _pOther)
  	collCount--;
 	if(groundCount >= 1)
 		groundCount--;
-	if (!isCanMove) isCanMove = true;
+	if (!isCanMoveL) isCanMoveL = true;
+	if (!isCanMoveR) isCanMoveR = true;
 }
 void Player::StayCollision(Collider* _pOther)
 {      
@@ -97,7 +102,7 @@ void Player::Update()
 
 	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A)) 
 	{
-		if (isCanMove)
+		if (isCanMoveL)
 		{
 			GetAnimator()->Play(L"WalkL", true);
 			isLeft = true;
@@ -108,7 +113,7 @@ void Player::Update()
 	}
 	else if (KEY_HOLD(KEY::RIGHT) || KEY_HOLD(KEY::D))
 	{
-		if (isCanMove)
+		if (isCanMoveR)
 		{
 			GetAnimator()->Play(L"WalkR", true);
 			isLeft = false;

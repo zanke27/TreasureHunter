@@ -92,6 +92,9 @@
     <Filter Include="Engine\04. Object\PlatformObj">
       <UniqueIdentifier>{445c2264-66da-477c-a36d-87a8782a6f42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Title">
+      <UniqueIdentifier>{b897f7e8-46ce-4d68-953f-ac29a105f5ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -202,6 +205,9 @@
     <ClInclude Include="json\json-forwards.h">
       <Filter>Engine\01. Header</Filter>
     </ClInclude>
+    <ClInclude Include="Scene_Title.h">
+      <Filter>Engine\05. Scene\Scene_Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -304,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="jsoncpp.cpp">
       <Filter>Engine\02. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Title.cpp">
+      <Filter>Engine\05. Scene\Scene_Title</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

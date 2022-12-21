@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SceneMgr.h"
+#include "Scene_Title.h"
 #include "Scene_Start.h"
 #include "Scene_01.h"
 #include "EventMgr.h"
@@ -31,6 +32,8 @@ void SceneMgr::ChangeScene(SCENE_TYPE _eNext)
 void SceneMgr::Init()
 {
 	// Scene 생성
+	m_arrScene[(UINT)SCENE_TYPE::TITLE] = new Scene_Title;
+	m_arrScene[(UINT)SCENE_TYPE::TITLE]->SetName(L"Scene Title");
 	m_arrScene[(UINT)SCENE_TYPE::START] = new Scene_Start;
 	m_arrScene[(UINT)SCENE_TYPE::START]->SetName(L"Start Scene");
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_01] = new Scene_01;
@@ -41,7 +44,7 @@ void SceneMgr::Init()
 
 
 	// 현재 씬 지정
-	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::START];
+	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::SCENE_01];
 	m_pCurScene->Enter();
 }
 
