@@ -44,7 +44,7 @@ void SceneMgr::Init()
 
 
 	// ÇöÀç ¾À ÁöÁ¤
-	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::SCENE_01];
+	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::TITLE];
 	m_pCurScene->Enter();
 }
 

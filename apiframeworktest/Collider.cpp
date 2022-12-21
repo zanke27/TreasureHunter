@@ -32,17 +32,18 @@ void Collider::FinalUpdate()
 	//HBRUSH hDefaultBrush = (HBRUSH)SelectObject(_dc, hHollowBrush);
 void Collider::Render(HDC _dc)
 {
-	PEN_TYPE ePen = PEN_TYPE::GREEN;
-	if (m_iCheck)
-		ePen = PEN_TYPE::RED;
-	SelectGDI p(_dc, ePen);
-	SelectGDI b(_dc, BRUSH_TYPE::HOLLOW);
+	//PEN_TYPE ePen = PEN_TYPE::GREEN;
+	//if (m_iCheck)
+	//	ePen = PEN_TYPE::RED;
+	//SelectGDI p(_dc, ePen);
+	//SelectGDI b(_dc, BRUSH_TYPE::HOLLOW);
 
-	Rectangle(_dc
-		, (int)(m_vFinalPos.x - m_vScale.x / 2.f)
-		, (int)(m_vFinalPos.y - m_vScale.y / 2.f)
-		, (int)(m_vFinalPos.x + m_vScale.x / 2.f)
-		, (int)(m_vFinalPos.y + m_vScale.y / 2.f));
+	//Rectangle(_dc
+	//	, (int)(m_vFinalPos.x - m_vScale.x / 2.f)
+	//	, (int)(m_vFinalPos.y - m_vScale.y / 2.f)
+	//	, (int)(m_vFinalPos.x + m_vScale.x / 2.f)
+	//	, (int)(m_vFinalPos.y + m_vScale.y / 2.f));
+
 	//SelectObject(_dc, hDefaultPen);
 	//SelectObject(_dc, hDefaultBrush);
 }
