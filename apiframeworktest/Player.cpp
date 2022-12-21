@@ -20,8 +20,8 @@ static bool isCanMoveL = true;
 static bool isCanMoveR = true;
 static int	collCount = 0;
 static int	groundCount = 0;
-static int test = 0;
 static float m_dt = 0.0f;
+static float m_fdt = 0.2f;
 
 Player::Player()
 {
@@ -46,6 +46,7 @@ Player::Player()
 	GetAnimator()->CreateAnimation(L"FallR", pImg, Vec2(0.f, 144.f), Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 100.f);
 
 	GetAnimator()->Play(L"IdleR", true);
+	collCount = 0;
 
 }
 Player::~Player()
@@ -108,7 +109,6 @@ void Player::Update()
 			isLeft = true;
 			isMove = true;
 			vPos.x -= 200.f * fDT;
-			test--;
 		}
 	}
 	else if (KEY_HOLD(KEY::RIGHT) || KEY_HOLD(KEY::D))
@@ -119,7 +119,6 @@ void Player::Update()
 			isLeft = false;
 			isMove = true;
 			vPos.x += 200.f * fDT;
-			test++;
 		}
 	}
 	else if(isMove && !isFall && !isJump)
