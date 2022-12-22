@@ -76,6 +76,8 @@ void Scene_Start::Enter()
 		}
 	}
 
+	
+
 	// 충돌 지정 
 	// Player - Monster 그룹 간의 충돌 체크
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
