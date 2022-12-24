@@ -3,8 +3,10 @@
 #include "Object.h"
 #include "Core.h"
 #include "Image.h"
+#include "ResMgr.h"
 #include "SoundMgr.h"
 #include "Background.h"
+#include "Title.h"
 #include "KeyMgr.h"
 #include "json/json.h"
 
@@ -21,11 +23,17 @@ void Scene_Title::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
 
+
 	Object* bObj = new Background;
 
 	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
 	bObj->SetScale(Vec2(200.f, 200.f));
 	AddObject(bObj, GROUP_TYPE::DEFAULT);
+	
+	Object* tObj = new Title;
+	tObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
+	tObj->SetScale(Vec2(200.f, 200.f));
+	AddObject(tObj, GROUP_TYPE::DEFAULT);
 }
 
 void Scene_Title::Exit()

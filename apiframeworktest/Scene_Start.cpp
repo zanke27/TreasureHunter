@@ -31,12 +31,6 @@ void Scene_Start::Enter()
 {
 	// Object Ãß°¡
 
-	Object* bObj = new Background;
-	
-	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
-	bObj->SetScale(Vec2(200.f, 200.f));
-	AddObject(bObj, GROUP_TYPE::DEFAULT);
-
 	pObj = new Player;
 	
 	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/20, Core::GetInst()->GetResolution().y/3 - 10));
