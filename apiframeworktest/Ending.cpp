@@ -15,6 +15,7 @@
 #include "ResMgr.h"
 #include "PlatformObj.h"
 #include "json/json.h"
+#include "Background.h"
 #include <string>
 
 static Object* pObj;
@@ -30,6 +31,11 @@ Ending::~Ending()
 }
 void Ending::Enter()
 {
+	Object* bObj = new Background;
+
+	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
+	bObj->SetScale(Vec2(200.f, 200.f));
+	AddObject(bObj, GROUP_TYPE::DEFAULT);
 
 	Platform* pPlatform = ResMgr::GetInst()->PlatformLoad(L"Ending", L"Platform\\Ending.json");
 	int mapWidth = pPlatform->GetWidth();
@@ -46,7 +52,7 @@ void Ending::Enter()
 
 			pPlatformObj = new PlatformObj;
 			pPlatformObj->SetName(L"PlatformObj");
-			pPlatformObj->SetImageToNum(mapArr[i].asInt());
+			pPlatformObj->SetImageToNum(3);
 			pPlatformObj->SetPos(Vec2(tileScale * w, tileScale * h));
 			pPlatformObj->SetScale(Vec2(tileScale, tileScale));
 			pPlatformObj->SetCenterPos(pPlatformObj->GetPos());

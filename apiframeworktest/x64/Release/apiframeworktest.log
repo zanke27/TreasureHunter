@@ -1,11 +1,26 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output 디렉터리가 슬래시로 끝나지 않습니다. Output 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Release\)에 다른 프로젝트(apiframeworktest.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
-  Player.cpp
-LINK : warning C4727: 타임스탬프가 동일한 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\jsoncpp.obj 및 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\image.obj에 있습니다.  첫 번째 PCH를 사용합니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Release\)에 다른 프로젝트(apiframeworktest.vcxproj, Gamep_winapiframework.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  Ending.cpp
+D:\GitHub\PlatformJumpGame\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  Scene_Title.cpp
+D:\GitHub\PlatformJumpGame\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
 LINK : warning C4727: 타임스탬프가 동일한 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\main.obj 및 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\keymgr.obj에 있습니다.  첫 번째 PCH를 사용합니다.
-LINK : warning C4727: 타임스탬프가 동일한 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\timemgr.obj 및 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\soundmgr.obj에 있습니다.  첫 번째 PCH를 사용합니다.
   코드를 생성하고 있습니다.
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 1897 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  2 of 1897 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  apiframeworktest.vcxproj -> C:\Users\USER\Documents\QuizPlatFormer\OutPut\bin\PlatformJumpGame.exe
+Core.obj : warning LNK4099: 'vc143.pdb' PDB를 'Core.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Image.obj : warning LNK4099: 'vc143.pdb' PDB를 'Image.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+KeyMgr.obj : warning LNK4099: 'vc143.pdb' PDB를 'KeyMgr.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+main.obj : warning LNK4099: 'vc143.pdb' PDB를 'main.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Object.obj : warning LNK4099: 'vc143.pdb' PDB를 'Object.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+PathMgr.obj : warning LNK4099: 'vc143.pdb' PDB를 'PathMgr.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Res.obj : warning LNK4099: 'vc143.pdb' PDB를 'Res.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Scene.obj : warning LNK4099: 'vc143.pdb' PDB를 'Scene.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+SceneMgr.obj : warning LNK4099: 'vc143.pdb' PDB를 'SceneMgr.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Sound.obj : warning LNK4099: 'vc143.pdb' PDB를 'Sound.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+TimeMgr.obj : warning LNK4099: 'vc143.pdb' PDB를 'TimeMgr.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+Vec2.obj : warning LNK4099: 'vc143.pdb' PDB를 'Vec2.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+BWindow.obj : warning LNK4099: 'vc143.pdb' PDB를 'BWindow.obj' 또는 'D:\GitHub\PlatformJumpGame\OutPut\bin\vc143.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+  apiframeworktest.vcxproj -> D:\GitHub\PlatformJumpGame\OutPut\bin\PlatformJumpGame.exe
