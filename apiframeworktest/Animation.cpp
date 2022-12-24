@@ -43,21 +43,8 @@ void Animation::Render(HDC _dc)
 		return;
 	Object* pObj = m_pAnimator->GetObj();
 	Vec2 vPos = pObj->GetPos();
-	// 원래 위치로
-	//TransparentBlt(_dc
-	//	, (int)(vPos.x - m_vecFrm[m_iCurFrm].vSlice.x / 2.f)
-	//	, (int)(vPos.y - m_vecFrm[m_iCurFrm].vSlice.y / 2.f)
-	//	, (int)(m_vecFrm[m_iCurFrm].vSlice.x 			  )
-	//	, (int)(m_vecFrm[m_iCurFrm].vSlice.y			 )
-	//	,  m_pImage->GetDC()						  
-	//	, (int)(m_vecFrm[m_iCurFrm].vLT.x				  )
-	//	, (int)(m_vecFrm[m_iCurFrm].vLT.y				  )
-	//	, (int)(m_vecFrm[m_iCurFrm].vSlice.x				  )
-	//	, (int)(m_vecFrm[m_iCurFrm].vSlice.y				  )
-	//	, RGB(255,0,255));
-	
-	// 오프셋으로
-	vPos += m_vecFrm[m_iCurFrm].vOffset; //  object pos에 offset만큼 추가 이동위치
+
+	vPos += m_vecFrm[m_iCurFrm].vOffset; 
 	TransparentBlt(_dc
 		, (int)(vPos.x - m_vecFrm[m_iCurFrm].vSlice.x / 2.f)
 		, (int)(vPos.y - m_vecFrm[m_iCurFrm].vSlice.y / 2.f)
