@@ -1,46 +1,12 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output 디렉터리가 슬래시로 끝나지 않습니다. Output 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Release\)에 다른 프로젝트(apiframeworktest.vcxproj, Gamep_winapiframework.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
-  Animation.cpp
-  Animator.cpp
-  Background.cpp
-  Collider.cpp
-  CollisionMgr.cpp
-  Core.cpp
-  Ending.cpp
-D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  EventMgr.cpp
-  func.cpp
-  Image.cpp
-  jsoncpp.cpp
-  KeyMgr.cpp
-  main.cpp
-  BWindow.cpp
-  MainStage.cpp
-D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  Object.cpp
-  PathMgr.cpp
-D:\GitHub\QuizPlatFormer\apiframeworktest\PathMgr.cpp(17,35): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Platform.cpp
-D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  PlatformObj.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Release\)에 다른 프로젝트(apiframeworktest.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
   Player.cpp
-  Res.cpp
-  ResMgr.cpp
-D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  Scene.cpp
-  SceneMgr.cpp
-  Scene_Title.cpp
-  SelectGDI.cpp
-  Sound.cpp
-  SoundMgr.cpp
-  TimeMgr.cpp
-  Title.cpp
-  Vec2.cpp
-D:\GitHub\QuizPlatFormer\apiframeworktest\Vec2.cpp(26,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\GitHub\QuizPlatFormer\apiframeworktest\Vec2.cpp(27,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-LINK : warning C4727: 타임스탬프가 동일한 d:\github\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 d:\github\quizplatformer\apiframeworktest\x64\release\collisionmgr.obj 및 d:\github\quizplatformer\apiframeworktest\x64\release\collider.obj에 있습니다.  첫 번째 PCH를 사용합니다.
+LINK : warning C4727: 타임스탬프가 동일한 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\jsoncpp.obj 및 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\image.obj에 있습니다.  첫 번째 PCH를 사용합니다.
+LINK : warning C4727: 타임스탬프가 동일한 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\main.obj 및 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\keymgr.obj에 있습니다.  첫 번째 PCH를 사용합니다.
+LINK : warning C4727: 타임스탬프가 동일한 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\timemgr.obj 및 c:\users\user\documents\quizplatformer\apiframeworktest\x64\release\soundmgr.obj에 있습니다.  첫 번째 PCH를 사용합니다.
   코드를 생성하고 있습니다.
-  Previous IPDB not found, fall back to full compilation.
-  All 1897 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  1 of 1897 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  apiframeworktest.vcxproj -> D:\GitHub\QuizPlatFormer\OutPut\bin\PlatformJumpGame.exe
+  apiframeworktest.vcxproj -> C:\Users\USER\Documents\QuizPlatFormer\OutPut\bin\PlatformJumpGame.exe

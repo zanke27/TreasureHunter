@@ -3,6 +3,7 @@
 #include "MainStage.h"
 #include "Object.h"
 #include "Player.h"
+#include "Background.h"
 #include "Monster.h"
 #include "Core.h"
 #include "Image.h"
@@ -67,6 +68,12 @@ void MainStage::Update()
 
 void MainStage::Generate(int num)
 {
+	Object* bObj = new Background;
+
+	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
+	bObj->SetScale(Vec2(200.f, 200.f));
+	AddObject(bObj, GROUP_TYPE::DEFAULT);
+
 	pObj = new Player;
 
 	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20 + 209, Core::GetInst()->GetResolution().y / 3 + 250));
