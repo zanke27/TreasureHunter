@@ -35,9 +35,6 @@
     <Filter Include="Engine\05. Scene">
       <UniqueIdentifier>{c299ed7c-4b0b-48aa-8a09-2965a8518214}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\05. Scene\Scene_Start">
-      <UniqueIdentifier>{64e8a1cc-319b-4ad1-afce-55d3f089418d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\05. Scene\Scene_Tool">
       <UniqueIdentifier>{01cd37be-d817-459c-a761-909371822aa7}</UniqueIdentifier>
     </Filter>
@@ -71,9 +68,6 @@
     <Filter Include="Engine\03. Manager\EventMgr">
       <UniqueIdentifier>{07718400-e5bc-4fe5-9698-ec9b297ce34f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\05. Scene\Scene_01">
-      <UniqueIdentifier>{08fc7cdf-bc88-4ea8-9fe5-a0ba2266348f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\07. Component\Animation">
       <UniqueIdentifier>{58b065ea-6c5b-4536-9b64-c6b4c80b0082}</UniqueIdentifier>
     </Filter>
@@ -92,8 +86,8 @@
     <Filter Include="Engine\04. Object\Background">
       <UniqueIdentifier>{70f9629b-4f9b-4dce-a003-c814eceb9a53}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\04. Object\Title">
-      <UniqueIdentifier>{2a27558f-411c-4966-81a2-9d6df8673525}</UniqueIdentifier>
+    <Filter Include="Engine\05. Scene\MainStage">
+      <UniqueIdentifier>{7aacb566-d6d9-4800-bb6b-fbee05817b3b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,9 +130,6 @@
     <ClInclude Include="SceneMgr.h">
       <Filter>Engine\03. Manager\SceneMgr</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_Start.h">
-      <Filter>Engine\05. Scene\Scene_Start</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Engine\04. Object\Player</Filter>
     </ClInclude>
@@ -175,9 +166,6 @@
     <ClInclude Include="func.h">
       <Filter>Engine\01. Header</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_01.h">
-      <Filter>Engine\05. Scene\Scene_01</Filter>
-    </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
@@ -205,8 +193,8 @@
     <ClInclude Include="Background.h">
       <Filter>Engine\04. Object\Background</Filter>
     </ClInclude>
-    <ClInclude Include="Title.h">
-      <Filter>Engine\04. Object\Title</Filter>
+    <ClInclude Include="MainStage.h">
+      <Filter>Engine\05. Scene\MainStage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -248,9 +236,6 @@
     <ClCompile Include="SceneMgr.cpp">
       <Filter>Engine\03. Manager\SceneMgr</Filter>
     </ClCompile>
-    <ClCompile Include="Scene_Start.cpp">
-      <Filter>Engine\05. Scene\Scene_Start</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Engine\04. Object\Player</Filter>
     </ClCompile>
@@ -284,9 +269,6 @@
     <ClCompile Include="func.cpp">
       <Filter>Engine\01. Header</Filter>
     </ClCompile>
-    <ClCompile Include="Scene_01.cpp">
-      <Filter>Engine\05. Scene\Scene_01</Filter>
-    </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Engine\07. Component</Filter>
     </ClCompile>
@@ -311,8 +293,8 @@
     <ClCompile Include="Background.cpp">
       <Filter>Engine\04. Object\Background</Filter>
     </ClCompile>
-    <ClCompile Include="Title.cpp">
-      <Filter>Engine\04. Object\Title</Filter>
+    <ClCompile Include="MainStage.cpp">
+      <Filter>Engine\05. Scene\MainStage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,8 +1,7 @@
 #include "pch.h"
 #include "SceneMgr.h"
 #include "Scene_Title.h"
-#include "Scene_Start.h"
-#include "Scene_01.h"
+#include "MainStage.h"
 #include "EventMgr.h"
 SceneMgr::SceneMgr()
 	: m_pCurScene(nullptr)
@@ -34,10 +33,10 @@ void SceneMgr::Init()
 	// Scene 생성
 	m_arrScene[(UINT)SCENE_TYPE::TITLE] = new Scene_Title;
 	m_arrScene[(UINT)SCENE_TYPE::TITLE]->SetName(L"Scene Title");
-	m_arrScene[(UINT)SCENE_TYPE::START] = new Scene_Start;
-	m_arrScene[(UINT)SCENE_TYPE::START]->SetName(L"Start Scene");
-	m_arrScene[(UINT)SCENE_TYPE::SCENE_01] = new Scene_01;
-	m_arrScene[(UINT)SCENE_TYPE::SCENE_01]->SetName(L"Scene 01");
+	m_arrScene[(UINT)SCENE_TYPE::MAINSTAGE] = new MainStage;
+	m_arrScene[(UINT)SCENE_TYPE::MAINSTAGE]->SetName(L"Main Stage");
+	m_arrScene[(UINT)SCENE_TYPE::ENDING] = new MainStage; // 엔딩씬으로 바꿔
+	m_arrScene[(UINT)SCENE_TYPE::ENDING]->SetName(L"Main Stage"); // 이름도
 
 //	m_arrScene[(UINT)SCENE_TYPE::TOOL] = new Scene_Tool;
 //	m_arrScene[(UINT)SCENE_TYPE::SCENE_02] = new Scene02;
