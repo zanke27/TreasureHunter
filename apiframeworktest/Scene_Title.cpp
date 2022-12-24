@@ -20,7 +20,7 @@ Scene_Title::~Scene_Title()
 
 void Scene_Title::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
+	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\MainBgm.mp3");
 	SoundMgr::GetInst()->Play(L"BGM");
 
 

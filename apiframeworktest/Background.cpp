@@ -10,7 +10,7 @@ static Image* bImg;
 Background::Background()
 {
 	// image ¾÷·Îµå
-	bImg = ResMgr::GetInst()->ImgLoad(L"Background", L"Image\\BackGround.bmp");
+	bImg = ResMgr::GetInst()->ImgLoad(L"Background", L"Image\\BG.bmp");
 }
 Background::~Background()
 {
@@ -30,7 +30,7 @@ void Background::Render(HDC _dc)
 	StretchBlt(_dc
 		,0
 		,0
-	    , GetSystemMetrics(SM_CXSCREEN), Height * 1.2f
+	    , GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)
 	    , bImg->GetDC()
 	    , 0,0
 		, Width,Height
