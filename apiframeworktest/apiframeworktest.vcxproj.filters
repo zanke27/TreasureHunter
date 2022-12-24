@@ -89,6 +89,9 @@
     <Filter Include="Engine\05. Scene\MainStage">
       <UniqueIdentifier>{7aacb566-d6d9-4800-bb6b-fbee05817b3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Title">
+      <UniqueIdentifier>{8af48de5-7a3d-46d0-9a74-a0405a1382de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -196,6 +199,9 @@
     <ClInclude Include="MainStage.h">
       <Filter>Engine\05. Scene\MainStage</Filter>
     </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Engine\04. Object\Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -295,6 +301,9 @@
     </ClCompile>
     <ClCompile Include="MainStage.cpp">
       <Filter>Engine\05. Scene\MainStage</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Engine\04. Object\Title</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
