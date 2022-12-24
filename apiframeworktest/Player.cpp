@@ -146,7 +146,7 @@ void Player::Update()
 	if (isJump)
 	{
 		m_dt += fDT;
-		vPos.y -= 200.f * fDT + (0.2f-m_dt) * 0.2f;
+		vPos.y -= 200.f * fDT + (0.2f-m_dt) * 0.3f;
 		if (m_dt >= 0.3f)
 		{
 			m_dt = 0.0f;
@@ -161,9 +161,9 @@ void Player::Update()
 	if (isFall)
 	{
 		m_dt += fDT;
-		vPos.y += m_dt * 2.f;
-		if (m_dt >= fDT * 400.f)
-			m_dt = fDT * 400.f;
+		vPos.y += m_dt * 3.f;
+		if (m_dt >= fDT * 200.f)
+			m_dt = fDT * 200.f;
 	}
 	if (!isJump && collCount <= 0)
 	{

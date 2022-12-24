@@ -31,7 +31,7 @@ void Title::Render(HDC _dc)
 
 	TransparentBlt(_dc
 		, (int)(vPos.x - (float)(Width / 2))
-		, 50
+		, 75
 		,Width, Height
 	    , tImg->GetDC()
 	    ,0,0, Width, Height
