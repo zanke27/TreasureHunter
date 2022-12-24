@@ -48,7 +48,7 @@ void MainStage::Update()
 	Scene::Update();
 	if (pObj->GetPos().y > Core::GetInst()->GetResolution().y)
 	{
-		pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20 + 235, Core::GetInst()->GetResolution().y / 3 + 350));
+		pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20 + 200, Core::GetInst()->GetResolution().y / 3 + 250));
 	}
 	if (pObj->GetPos().x + 16 >= sPlatObj->GetPos().x &&
 		pObj->GetPos().x - 16 <= sPlatObj->GetPos().x &&
@@ -58,7 +58,7 @@ void MainStage::Update()
 		Remove();
 		
 		num += 1;
-		if (num == 10)
+		if (num == 8)
 			ChangeScene(SCENE_TYPE::ENDING);
 		else 
 			Generate(num);
@@ -69,7 +69,7 @@ void MainStage::Generate(int num)
 {
 	pObj = new Player;
 
-	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20 + 235, Core::GetInst()->GetResolution().y / 3 + 350));
+	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 20 + 209, Core::GetInst()->GetResolution().y / 3 + 250));
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 

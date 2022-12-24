@@ -92,6 +92,9 @@
     <Filter Include="Engine\04. Object\Title">
       <UniqueIdentifier>{f62b3b17-3cb3-4033-9248-e8c253d88697}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Ending">
+      <UniqueIdentifier>{e0ab8aa2-e2ed-458f-ba67-38ad6400556e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -202,6 +205,9 @@
     <ClInclude Include="Title.h">
       <Filter>Engine\04. Object\Title</Filter>
     </ClInclude>
+    <ClInclude Include="Ending.h">
+      <Filter>Engine\05. Scene\Ending</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -304,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="Title.cpp">
       <Filter>Engine\04. Object\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Ending.cpp">
+      <Filter>Engine\05. Scene\Ending</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

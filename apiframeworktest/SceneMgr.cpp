@@ -2,6 +2,7 @@
 #include "SceneMgr.h"
 #include "Scene_Title.h"
 #include "MainStage.h"
+#include "Ending.h"
 #include "EventMgr.h"
 SceneMgr::SceneMgr()
 	: m_pCurScene(nullptr)
@@ -35,8 +36,8 @@ void SceneMgr::Init()
 	m_arrScene[(UINT)SCENE_TYPE::TITLE]->SetName(L"Scene Title");
 	m_arrScene[(UINT)SCENE_TYPE::MAINSTAGE] = new MainStage;
 	m_arrScene[(UINT)SCENE_TYPE::MAINSTAGE]->SetName(L"Main Stage");
-	m_arrScene[(UINT)SCENE_TYPE::ENDING] = new MainStage; // ø£µ˘æ¿¿∏∑Œ πŸ≤„
-	m_arrScene[(UINT)SCENE_TYPE::ENDING]->SetName(L"Main Stage"); // ¿Ã∏ßµµ
+	m_arrScene[(UINT)SCENE_TYPE::ENDING] = new Ending; // ø£µ˘æ¿¿∏∑Œ πŸ≤„
+	m_arrScene[(UINT)SCENE_TYPE::ENDING]->SetName(L"Ending"); // ¿Ã∏ßµµ
 
 //	m_arrScene[(UINT)SCENE_TYPE::TOOL] = new Scene_Tool;
 //	m_arrScene[(UINT)SCENE_TYPE::SCENE_02] = new Scene02;
