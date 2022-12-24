@@ -47,7 +47,7 @@ void PlatformObj::Render(HDC _dc)
 		, Width, Height
 		, m_platformImage->GetDC()
 		, 0, 0, Width, Height
-		, RGB(255, 0, 255));
+		, RGB(255, 255, 255));
 	Component_Render(_dc);
 }
 

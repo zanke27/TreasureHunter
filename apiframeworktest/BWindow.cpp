@@ -63,8 +63,20 @@ ATOM BWindow::MyRegisterClass()
 
 void BWindow::WindowCreate()
 {
-	m_hWnd = CreateWindowW(WINDOW_NAME, L"¡÷¥®'s Gameframework", WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, m_hInstance, nullptr);
+	m_hWnd = CreateWindowExW
+	(
+		WS_EX_APPWINDOW, 
+		WINDOW_NAME, 
+		L"TreasureHunter", 
+		WS_EX_TOPMOST | WS_OVERLAPPEDWINDOW,
+		0, 
+		0, 
+		GetSystemMetrics(SM_CXFULLSCREEN),
+		GetSystemMetrics(SM_CYFULLSCREEN),
+		nullptr, 
+		nullptr, 
+		m_hInstance, 
+		nullptr);
 }
 
 void BWindow::WindowShow(int nCmdShow)

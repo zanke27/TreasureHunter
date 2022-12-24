@@ -4,7 +4,7 @@
 						 static type mgr;\
 						return &mgr;\
 					}
-#define WINDOW_NAME L"Gameframework"
+#define WINDOW_NAME L"TreasureHunter "
 #define fDT TimeMgr::GetInst()->GetfDT()
 #define DT TimeMgr::GetInst()->GetDT()
 #define KEY_CHECK(key, state) KeyMgr::GetInst()->GetKey(key) == state
