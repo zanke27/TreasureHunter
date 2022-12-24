@@ -68,7 +68,7 @@ void Animation::Render(HDC _dc)
 		, (int)(m_vecFrm[m_iCurFrm].vLT.y				  )
 		, (int)(m_vecFrm[m_iCurFrm].vSlice.x				  )
 		, (int)(m_vecFrm[m_iCurFrm].vSlice.y				  )
-		, RGB(255,0,255));
+		, RGB(255,255,255));
 
 }
 
