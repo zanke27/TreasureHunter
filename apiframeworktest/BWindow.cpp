@@ -63,7 +63,7 @@ ATOM BWindow::MyRegisterClass()
 
 void BWindow::WindowCreate()
 {
-	m_hWnd = CreateWindowW(WINDOW_NAME, L"¡÷¥®'s Gameframework", WS_OVERLAPPEDWINDOW,
+	m_hWnd = CreateWindowW(WINDOW_NAME, L"TreasureHunter", WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, m_hInstance, nullptr);
 }
 
