@@ -24,7 +24,7 @@
     <ProjectGuid>{dcd48bbd-da74-4774-9f8a-6dbc90a25285}</ProjectGuid>
     <RootNamespace>apiframeworktest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Gamep_winapiframework</ProjectName>
+    <ProjectName>PlatformJumpGame</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

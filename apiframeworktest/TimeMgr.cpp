@@ -53,6 +53,7 @@ void TimeMgr::Render()
 		swprintf_s(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
 		//		wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
 		//SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
+		//SetWindowText(Core::GetInst()->GetWndHandle(), L"TreasureHunter");
 	}
 
 }

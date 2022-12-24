@@ -1,5 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output 디렉터리가 슬래시로 끝나지 않습니다. Output 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Release\)에 다른 프로젝트(apiframeworktest.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Release\)에 다른 프로젝트(apiframeworktest.vcxproj, Gamep_winapiframework.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
   Animation.cpp
   Animator.cpp
   Background.cpp
@@ -38,11 +38,9 @@ D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전�
   Vec2.cpp
 D:\GitHub\QuizPlatFormer\apiframeworktest\Vec2.cpp(26,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 D:\GitHub\QuizPlatFormer\apiframeworktest\Vec2.cpp(27,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-LINK : warning C4727: 타임스탬프가 동일한 d:\github\quizplatformer\apiframeworktest\x64\release\gamep_winapiframework.pch PCH가 d:\github\quizplatformer\apiframeworktest\x64\release\background.obj 및 d:\github\quizplatformer\apiframeworktest\x64\release\animator.obj에 있습니다.  첫 번째 PCH를 사용합니다.
-LINK : warning C4727: 타임스탬프가 동일한 d:\github\quizplatformer\apiframeworktest\x64\release\gamep_winapiframework.pch PCH가 d:\github\quizplatformer\apiframeworktest\x64\release\func.obj 및 d:\github\quizplatformer\apiframeworktest\x64\release\eventmgr.obj에 있습니다.  첫 번째 PCH를 사용합니다.
-LINK : warning C4727: 타임스탬프가 동일한 d:\github\quizplatformer\apiframeworktest\x64\release\gamep_winapiframework.pch PCH가 d:\github\quizplatformer\apiframeworktest\x64\release\main.obj 및 d:\github\quizplatformer\apiframeworktest\x64\release\keymgr.obj에 있습니다.  첫 번째 PCH를 사용합니다.
+LINK : warning C4727: 타임스탬프가 동일한 d:\github\quizplatformer\apiframeworktest\x64\release\platformjumpgame.pch PCH가 d:\github\quizplatformer\apiframeworktest\x64\release\collisionmgr.obj 및 d:\github\quizplatformer\apiframeworktest\x64\release\collider.obj에 있습니다.  첫 번째 PCH를 사용합니다.
   코드를 생성하고 있습니다.
   Previous IPDB not found, fall back to full compilation.
   All 1897 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   코드를 생성했습니다.
-  apiframeworktest.vcxproj -> D:\GitHub\QuizPlatFormer\OutPut\bin\Gamep_winapiframework.exe
+  apiframeworktest.vcxproj -> D:\GitHub\QuizPlatFormer\OutPut\bin\PlatformJumpGame.exe

@@ -20,6 +20,8 @@ Scene_Title::~Scene_Title()
 
 void Scene_Title::Enter()
 {
+	SetWindowText(Core::GetInst()->GetWndHandle(), L"TreasureHunter");
+
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\MainBgm.mp3");
 	SoundMgr::GetInst()->Play(L"BGM");
 
