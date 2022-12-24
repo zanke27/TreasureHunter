@@ -1,3 +1,36 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(apiframeworktest.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  Animation.cpp
+  Animator.cpp
+  Background.cpp
+  Collider.cpp
+  CollisionMgr.cpp
   Core.cpp
-  apiframeworktest.vcxproj -> C:\Users\USER\Documents\QuizPlatFormer\OutPut\bin_debug\Gamep_winapiframework.exe
+  EventMgr.cpp
+  func.cpp
+  Image.cpp
+  jsoncpp.cpp
+  KeyMgr.cpp
+  BWindow.cpp
+  MainStage.cpp
+D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  Object.cpp
+  PathMgr.cpp
+D:\GitHub\QuizPlatFormer\apiframeworktest\PathMgr.cpp(17,35): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Platform.cpp
+D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  PlatformObj.cpp
+  Player.cpp
+  Res.cpp
+  ResMgr.cpp
+D:\GitHub\QuizPlatFormer\apiframeworktest\Platform.h(2,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  Scene.cpp
+  SceneMgr.cpp
+  Scene_Title.cpp
+  SelectGDI.cpp
+  Sound.cpp
+  SoundMgr.cpp
+  TimeMgr.cpp
+  Vec2.cpp
+D:\GitHub\QuizPlatFormer\apiframeworktest\Vec2.cpp(26,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\GitHub\QuizPlatFormer\apiframeworktest\Vec2.cpp(27,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  apiframeworktest.vcxproj -> D:\GitHub\QuizPlatFormer\OutPut\bin_debug\Gamep_winapiframework.exe

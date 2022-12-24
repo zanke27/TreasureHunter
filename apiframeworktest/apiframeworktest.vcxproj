@@ -160,7 +160,6 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="apiframeworktest.h" />
     <ClInclude Include="Background.h" />
-    <ClInclude Include="Bullet.h" />
     <ClInclude Include="BWindow.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -178,7 +177,7 @@
     <ClInclude Include="json\json-forwards.h" />
     <ClInclude Include="json\json.h" />
     <ClInclude Include="KeyMgr.h" />
-    <ClInclude Include="Monster.h" />
+    <ClInclude Include="MainStage.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
@@ -190,8 +189,6 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
-    <ClInclude Include="Scene_01.h" />
-    <ClInclude Include="Scene_Start.h" />
     <ClInclude Include="Scene_Title.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="Sound.h" />
@@ -204,7 +201,6 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Background.cpp" />
-    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Core.cpp" />
@@ -220,7 +216,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MainStage.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PathMgr.cpp" />
     <ClCompile Include="Platform.cpp" />
@@ -230,8 +226,6 @@
     <ClCompile Include="ResMgr.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
-    <ClCompile Include="Scene_01.cpp" />
-    <ClCompile Include="Scene_Start.cpp" />
     <ClCompile Include="Scene_Title.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
     <ClCompile Include="Sound.cpp" />

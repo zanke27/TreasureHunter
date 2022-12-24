@@ -108,6 +108,6 @@ void Scene_Start::Update()
 		pObj->GetPos().y - 16 <= sPlatObj->GetPos().y)
 	{
 		//SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
-		ChangeScene(SCENE_TYPE::SCENE_01);
+		//ChangeScene(SCENE_TYPE::Stage_01);
 	}
 }

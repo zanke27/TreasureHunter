@@ -37,6 +37,6 @@ void Scene_Title::Update()
 	Scene::Update();
 	if (KEY_TAP(KEY::ENTER))
 	{
-		ChangeScene(SCENE_TYPE::START);
+		ChangeScene(SCENE_TYPE::MAINSTAGE);
 	}
 }
