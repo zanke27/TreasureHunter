@@ -22,6 +22,8 @@ static int	collCount = 0;
 static int	groundCount = 0;
 static float m_dt = 0.0f;
 static float m_fdt = 0.2f;
+static Vec2 vPos;
+static Image* pImg;
 
 Player::Player()
 {
@@ -30,7 +32,7 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(16.f, 16.f));
 
 	// image 업로드
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Playerb.bmp");
+	pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Playerb.bmp");
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
@@ -99,7 +101,7 @@ void Player::StayCollision(Collider* _pOther)
 }
 void Player::Update()
 {
-	Vec2 vPos = GetPos();
+	vPos = GetPos();
 
 	if (KEY_HOLD(KEY::LEFT) || KEY_HOLD(KEY::A)) 
 	{
@@ -160,6 +162,8 @@ void Player::Update()
 	{
 		m_dt += fDT;
 		vPos.y += m_dt * 2.f;
+		if (m_dt >= fDT * 400.f)
+			m_dt = fDT * 400.f;
 	}
 	if (!isJump && collCount <= 0)
 	{
@@ -190,26 +194,27 @@ void Player::Render(HDC _dc)
 	//	dot[i].x = dot[i].x * cos(test) - dot[i].y * sin(test);
 	//    dot[i].y = dot[i].x * sin(test) + dot[i].y * cos(test);
 	//}
+	//
+	//PlgBlt(_dc, dot, )
 
 	// 회전된 것으로 렌더링
-	/*int Width = (int)m_pImage->GetWidth();
-	int Height = (int)m_pImage->GetHeight();
+	//int Width = (int)pImg->GetWidth();
+	//int Height = (int)pImg->GetHeight();
 
-	Vec2 vPos = GetPos();*/
 	//BitBlt(_dc
 	//	,(int)(vPos.x - (float)(Width / 2))
 	//	,(int)(vPos.y - (float)(Height / 2))
 	//    , Width, Height
-	//    , m_pImage->GetDC()
+	//    , pImg->GetDC()
 	//    , 0,0, SRCCOPY);
 
-	//마젠타 색상 뺄때 transparent: 투명한
+	////마젠타 색상 뺄때 transparent: 투명한
 	//TransparentBlt(_dc
 	//	, (int)(vPos.x - (float)(Width / 2))
 	//	, (int)(vPos.y - (float)(Height / 2))
 	//	,Width, Height
-	//    , m_pImage->GetDC()
+	//    , pImg->GetDC()
 	//    ,0,0, Width, Height
-	//    , RGB(255,0,255));
+	//    , RGB(255,255,255));
 
 }

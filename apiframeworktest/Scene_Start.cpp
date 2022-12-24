@@ -29,14 +29,12 @@ Scene_Start::~Scene_Start()
 }
 void Scene_Start::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
-	SoundMgr::GetInst()->Play(L"BGM");
 	// Object 추가
 
 	Object* bObj = new Background;
 	
 	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
-	bObj->SetScale(Vec2(100.f, 100.f));
+	bObj->SetScale(Vec2(200.f, 200.f));
 	AddObject(bObj, GROUP_TYPE::DEFAULT);
 
 	pObj = new Player;
@@ -75,6 +73,8 @@ void Scene_Start::Enter()
 				AddObject(pPlatformObj, GROUP_TYPE::TEXTPLATFORM);
 		}
 	}
+
+	
 
 	// 충돌 지정 
 	// Player - Monster 그룹 간의 충돌 체크
