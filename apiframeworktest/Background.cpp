@@ -27,13 +27,19 @@ void Background::Update()
 void Background::Render(HDC _dc)
 {
 	//Component_Render(_dc);
+
+	Vec2 vPos = GetPos();
+
 	int Width = (int)bImg->GetWidth();
 	int Height = (int)bImg->GetHeight();
 
-	BitBlt(_dc
-		,(int)((float)(Width / 2))
-		,(int)((float)(Height / 2))
-	    , Width, Height
+	StretchBlt(_dc
+		,0
+		,0
+	    , Width * 5, Height * 5
 	    , bImg->GetDC()
-	    , 0,0, SRCCOPY);
+	    , 0,50
+		, Width,Height
+		, SRCCOPY
+	    );
 }
