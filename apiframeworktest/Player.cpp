@@ -167,8 +167,8 @@ void Player::Update()
 	{
 		m_dt += fDT;
 		vPos.y += m_dt * 3.f;
-		if (m_dt >= fDT * 200.f)
-			m_dt = fDT * 200.f;
+		if (m_dt >= 0.4f)
+			m_dt = 0.4f;
 	}
 	if (!isJump && collCount <= 0)
 	{
