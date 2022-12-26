@@ -19,7 +19,6 @@ static bool isFall = false;
 static bool isCanMoveL = true;
 static bool isCanMoveR = true;
 static int	collCount = 0;
-static int	groundCount = 0;
 static float m_dt = 0.0f;
 static float m_fdt = 0.2f;
 static Vec2 vPos;
@@ -63,16 +62,7 @@ void Player::EnterCollision(Collider* _pOther)
 	Vec2 vLeftScale = GetCollider()->GetScale();
 	Vec2 vRightScale = _pOther->GetScale();
 
-	if (abs(vRightPos.y - vLeftPos.y) >= (vLeftScale.y + vRightScale.y) / 2.2f && vRightPos.y - vLeftPos.y > 0.01f) groundCount++;
-	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.2f)
-	{
-
-		if (isLeft)
-			isCanMoveL = false;
-		else
-			isCanMoveR = false;
-	}
-	if (vRightPos.y - vLeftPos.y <= 0.01f)
+	if (abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.25f || vRightPos.y - vLeftPos.y <= 0.01f)
 	{
 		isJump = false;
 		isFall = true;
@@ -96,8 +86,6 @@ void Player::EnterCollision(Collider* _pOther)
 void Player::ExitCollision(Collider* _pOther)
 {
  	collCount--;
-	if(groundCount >= 1)
-		groundCount--;
 	if (!isCanMoveL) isCanMoveL = true;
 	if (!isCanMoveR) isCanMoveR = true;
 }
@@ -151,7 +139,7 @@ void Player::Update()
 	if (isJump)
 	{
 		m_dt += fDT;
-		vPos.y -= 205.f * fDT + (0.2f-m_dt) * 0.3f;
+		vPos.y -= 208.f * fDT + (0.2f-m_dt) * 0.4f;
 		if (m_dt >= 0.3f)
 		{
 			m_dt = 0.0f;
@@ -166,7 +154,7 @@ void Player::Update()
 	if (isFall)
 	{
 		m_dt += fDT;
-		vPos.y += m_dt * 3.f;
+		vPos.y += m_dt * 4.f;
 		if (m_dt >= 0.4f)
 			m_dt = 0.4f;
 	}
