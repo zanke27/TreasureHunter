@@ -1,1 +1,1 @@
-# QuizPlatFormer
+# TreasureHunter
